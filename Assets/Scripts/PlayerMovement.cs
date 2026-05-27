@@ -8,6 +8,8 @@ public class PlayerMovement : MonoBehaviour
     // Pelihahmon rigidbody törmäysten tunnistusta varten
     private Rigidbody2D rb;
 
+    private Animator animator;
+
     // Tallentaa liikkumisnopeuden ja suunnan
     private Vector2 movement;
 
@@ -17,6 +19,7 @@ public class PlayerMovement : MonoBehaviour
     void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
+        animator = GetComponent<Animator>();
     }
 
     void Update()
@@ -37,6 +40,8 @@ public class PlayerMovement : MonoBehaviour
         {
             SetFlip(true);
         }
+
+        animator.SetBool("Walking", movement.sqrMagnitude > 0);
     }
 
 
