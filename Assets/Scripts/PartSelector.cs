@@ -36,4 +36,24 @@ public class PartSelector : MonoBehaviour
 
         targetRenderer.sprite = options[currentIndex];
     }
+
+    public void SetColor(Color color)
+    {
+        targetRenderer.color = color;
+    }
+
+    public Color GetColor()
+    {
+        return targetRenderer.color;
+    }
+
+    public void SetIndex(int newIndex)
+    {
+        currentIndex = newIndex;
+    }
+
+    public int GetIndex()
+    {
+        return currentIndex;
+    }
 }
