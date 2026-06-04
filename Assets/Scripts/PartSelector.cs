@@ -50,6 +50,7 @@ public class PartSelector : MonoBehaviour
     public void SetIndex(int newIndex)
     {
         currentIndex = newIndex;
+        targetRenderer.sprite = options[currentIndex];
     }
 
     public int GetIndex()
