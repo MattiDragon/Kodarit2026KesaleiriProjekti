@@ -1,16 +1,19 @@
 using UnityEngine;
+using UnityEngine.U2D.Animation;
 
 public class PartSelector : MonoBehaviour
 { 
-    public Sprite[] options;
+    public SpriteLibraryAsset[] options;
 
     private SpriteRenderer targetRenderer;
+    private SpriteLibrary spriteLibrary;
 
     private int currentIndex = 0;
 
     void Awake()
     {
         targetRenderer = GetComponent<SpriteRenderer>();
+        spriteLibrary = GetComponent<SpriteLibrary>();
     }
 
     public void Previous()
@@ -22,7 +25,7 @@ public class PartSelector : MonoBehaviour
             currentIndex = options.Length - 1;
         }
 
-        targetRenderer.sprite = options[currentIndex];
+        spriteLibrary.spriteLibraryAsset = options[currentIndex];
     }
 
     public void Next()
@@ -34,7 +37,7 @@ public class PartSelector : MonoBehaviour
             currentIndex = 0;
         }
 
-        targetRenderer.sprite = options[currentIndex];
+        spriteLibrary.spriteLibraryAsset = options[currentIndex];
     }
 
     public void SetColor(Color color)
@@ -50,7 +53,7 @@ public class PartSelector : MonoBehaviour
     public void SetIndex(int newIndex)
     {
         currentIndex = newIndex;
-        targetRenderer.sprite = options[currentIndex];
+        spriteLibrary.spriteLibraryAsset = options[currentIndex];
     }
 
     public int GetIndex()
